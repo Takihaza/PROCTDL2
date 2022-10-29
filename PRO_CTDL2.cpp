@@ -119,7 +119,7 @@ void setEmail(string _Email)
     virtual void CreateFile(ofstream &FileOut, char* &FileName)
     {
         string str = (string)FileName;
-        string FilePath = str + ".txt";
+        string FilePath = str + ".TXT";
         FileName = new char [FilePath.length()+1];
         strcpy (FileName, FilePath.c_str());
         if (FileName != NULL)
@@ -132,7 +132,7 @@ void setEmail(string _Email)
     virtual void OpenFile(ifstream &FileIn, char* &FileName)
     {
         string str = (string)FileName;
-        string FilePath = str + ".txt";
+        string FilePath = str + ".TXT";
         FileName = new char [FilePath.length()+1];
         strcpy (FileName, FilePath.c_str());
         if (FileName != NULL)
@@ -376,7 +376,6 @@ void ThemEmployee(User* x)
     cout << "Nhap Username muon them: ";
     textcolor(15);
     cin >> Username;
-    
     if(KiemTraUsernameEmployee(x, Username))
     {
         textcolor(3);
@@ -386,7 +385,7 @@ void ThemEmployee(User* x)
         ofstream FileOut;
         Employees* Emp = new Employees();
         FileOut.open("Employees.txt", ios_base::app);                          
-        FileOut << Username << ", " << "111111" << endl;
+        FileOut << endl << Username << ", " << "111111";
         FileOut.close();
         Emp->CreateFile(FileOut, FilePath);
         Emp->Input();
@@ -654,7 +653,7 @@ void HienThiThongTinEmployee(User* x)
     FileIn.close();
     for(int i = 0; i < n; i++){
         textcolor(12);
-        cout << "Thong tin " << strUser[i] << ": "<< endl;
+        cout << "Thong tin " << strUser[i] << ": " << endl;
         string s = strUser[i];
         char* FileName = new char[s.length() + 1];
         strcpy(FileName, s.c_str());
